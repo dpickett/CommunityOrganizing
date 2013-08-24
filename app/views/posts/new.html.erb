@@ -1,0 +1,73 @@
+<style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqyE_ATNzMEVS_S-79LoBo6peBwoVa-o&sensor=false">
+    </script>
+    <script type="text/javascript">
+     var map;
+function initialize() {
+  var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+  var mapOptions = {
+    zoom: 4,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+  google.maps.event.addListener(map, 'dblclick', function(event) {
+    placeMarker(event.latLng);
+    alert(event.latLng)
+  });
+}
+
+function placeMarker(location) {
+  var marker = new google.maps.Marker({
+      position: location,
+      map: map
+  });
+
+  map.setCenter(location);
+}
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+<div style='float:right; width:500px; height:500px; margin-right:20px;'>
+  <div id="map-canvas"/></div>
+</div>
+<%= form_for :post, url: posts_path do |f| %>
+  <p>
+    <%= f.label :report_title %><br>
+    <%= f.text_field :report_title %>
+  </p>
+ 
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+   <p>
+    <%= f.label :location %><br>
+    <%= f.text_area :location %>
+  </p>
+<p>
+    <%= f.label :latitude %><br>
+    <%= f.text_area :latitude %>
+   </p>
+    <p>
+    <%= f.label :longitude %><br>
+    <%= f.text_area :longitude %>
+</p>
+<%= check_box_tag(:community_issue) %>
+<%= label_tag(:community_issue, "Is this a community issue?") %>
+<%= check_box_tag(:general_issue) %>
+<%= label_tag(:general_issue, "Is this a more general report?") %>
+<%= check_box_tag(:fun_issue) %>
+<%= label_tag(:fun_issue, "Is this report just for fun?") %>
+
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
