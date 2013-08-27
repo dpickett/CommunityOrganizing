@@ -1,3 +1,65 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$blue_zero: #263248;
+$blue_one: #7E8AA2;
+$blue_two: #DFEBFF;
+$white: #FFFFFF;
+$orange: #FF530D;
+$grey_zero: #C8C8C8;
+$red: #B31D14;
+
+ #map-canvas { 
+  height: 100%; 
+  width:100%; 
+  position:absolute;
+  z-index:0
+  }
+.form_instructions{
+  position:relative;
+  z-index:1;
+  background:$blue_zero;
+  border-bottom: 5px solid #131924;
+
+
+  .step{display:none;} 
+  .step.active{display:block;}
+  #address{float:left; width:40%; margin:5px 10px;
+    border-radius:5px; padding:10px;}
+
+
+}
+   
+#panel{
+  width:75%;
+  margin:auto;
+}
+.push_button {
+position: relative;
+width: 40%;
+color: #FFF;
+display: block;
+float: left;
+text-decoration: none;
+margin: 0 auto;
+top:5px;
+padding: 10px 5px;
+border-radius: 5px;
+border: solid 1px #D94E3B;
+background: #cb3b27;
+text-align: center;
+
+-webkit-transition: all 0.1s;
+-moz-transition: all 0.1s;
+transition: all 0.1s;
+-webkit-box-shadow: 1px 3px 0px #84261a;
+-moz-box-shadow: 1px 3px 0px #84261a;
+box-shadow: 1px 3px 0px #84261a;
+}
+.push_button:hover{
+    -webkit-box-shadow: 1px 2px 0px #84261a;
+    -moz-box-shadow: 1px 2px 0px #84261a;
+    box-shadow: 1px 2px 0px #84261a;
+    position:relative;
+    top:8px;
+}
