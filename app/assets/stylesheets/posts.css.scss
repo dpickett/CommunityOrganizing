@@ -20,9 +20,9 @@ $red: #B31D14;
   z-index:1;
   background:$blue_zero;
   border-bottom: 5px solid #131924;
-
-
-  .step{display:none;} 
+  p{color:$white; text-align:center;margin:0px; text-shadow:none;}
+  label{ color:$white; text-shadow:none;}
+  .step{display:none; width:75%; margin:auto;} 
   .step.active{display:block;}
   #address{float:left; width:40%; margin:5px 10px;
     border-radius:5px; padding:10px;}
@@ -33,6 +33,11 @@ $red: #B31D14;
 #panel{
   width:75%;
   margin:auto;
+}
+#step_2.push_button{
+  float:right;
+  width:20%;
+  font-size:15px;
 }
 .push_button {
 position: relative;
@@ -48,7 +53,6 @@ border-radius: 5px;
 border: solid 1px #D94E3B;
 background: #cb3b27;
 text-align: center;
-
 -webkit-transition: all 0.1s;
 -moz-transition: all 0.1s;
 transition: all 0.1s;
