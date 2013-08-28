@@ -30,6 +30,7 @@
         <%= f.hidden_field :latitude %>
         <%= f.hidden_field :longitude %>
       </div>
+    <input type="button" id='step_3' class='push_button' data-role='none'value="next" onclick="">
   </div>
   <div class="step step_4">
     <%= check_box_tag(:community_issue) %>
@@ -135,8 +136,13 @@ $(document).ready(function() {
   $('.step').removeClass('active');
   $('.step').fadeOut();
   $('.step_3').addClass('active');
-
    });
+  $('#step_3').click(function(){
+  $('.step').removeClass('active');
+  $('.step').fadeIn();
+  $('.step_4').addClass('active');
+   });
+
 
 });
 
