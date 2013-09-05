@@ -85,8 +85,8 @@ function initialize() {
        placeMarker(event.latLng);
        this_location = event.latLng.toString().replace(/"/g, "").replace(/'/g, "").replace(/\(|\)/g, "").split(',');
 
-        document.getElementById("post_longitude").value = this_location[0];
-        document.getElementById("post_latitude").value = this_location[1];
+        document.getElementById("post_longitude").value = this_location[1];
+        document.getElementById("post_latitude").value = this_location[0];
 
 
       });
@@ -130,13 +130,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function() {
   $('#step_1').click(function(){
-   $('.step_2').addClass('active');
+   $('.step_3').addClass('active');
    });
- $('#step_2').click(function(){
-  $('.step').removeClass('active');
-  $('.step').fadeOut();
-  $('.step_3').addClass('active');
-   });
+
   $('#step_3').click(function(){
   $('.step').removeClass('active');
   $('.step').fadeIn();

@@ -9,7 +9,7 @@ CommunityOrganizing::Application.routes.draw do
 
   resources :posts
 
-  root to: "posts#new"
+  root to: "posts#index"
   
   
 

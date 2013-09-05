@@ -1,0 +1,19 @@
+@import "twitter/bootstrap";
+@import 'posts';
+
+$blue_zero: #263248;
+$blue_one: #7E8AA2;
+$blue_two: #DFEBFF;
+$white: #FFFFFF;
+$orange: #FF530D;
+$grey_zero: #C8C8C8;
+$red: #B31D14;
+
+body{font-family:'Raleway';}
+.navbar{ margin-bottom: 0px;}
+.navbar-default .navbar-brand{background-image: url(/pin.svg); background-size:50% 50%; background-position: 0px 10px;background-repeat:no-repeat;}
+.navbar-default a.navbar-brand:hover{color:$red;}
+.navbar-default a.navbar-brand{ font-weight:100;text-shadow:0px;color:$orange;font-family:'Raleway Dots'!important; font-size:25px; letter-spacing:.09em;}
+ul.navbar-nav li{ font-family:'Raleway'}
+.nav.navbar-nav.navbar-right{border-left:1px solid #cccccc}
+a.help{color:$orange !important;}

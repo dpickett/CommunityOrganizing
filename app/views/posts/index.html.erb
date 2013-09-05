@@ -1,9 +1,35 @@
-<ul>
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbqyE_ATNzMEVS_S-79LoBo6peBwoVa-o&sensor=false">
+</script>
+<script>
+ var map;
+ var geocoder;
+function initialize() {
+   geocoder = new google.maps.Geocoder();
+  var myLatlng = new google.maps.LatLng(42.35619718606788, -71.06025695800781);
+  var mapOptions = {
+    zoom: 16,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 <% @posts.each do |post| %>
-
-  <li> <%= post.report_title %> </li>
-  <li> <%= post.location %> </li>
-
-
+  new google.maps.Marker({
+      position: new google.maps.LatLng(<%= post.latitude.to_f %>, <%= post.longitude.to_f %>),
+        map: map,
+        title: 'Hello World!'
+  });
 <% end %>
-</ul>
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
+
+<div id="map-canvas"/></div>
+
+
+<script>
+
+</script>
