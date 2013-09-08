@@ -7,7 +7,7 @@ def index
 end
 
 def create
-@post = Post.new(params[:post].permit(:report_title, :description, :location, :community_issue, :fun_issue, :general_issue, :latitude, :longitude))
+@post = Post.create(params[:post].permit(:report_title, :description, :location, :community_issue, :fun_issue, :general_issue, :latitude, :longitude))
 @post.save
 redirect_to @post
 end
@@ -15,6 +15,7 @@ end
 def show
   @post = Post.find(params[:id])
 end
+
 
 private
   def post_params

@@ -1,52 +1,43 @@
     
 
+<div class="panel panel-primary">
+  <div class="panel-heading">Report an Issue: Double Click the Map To Drop A Pin</p></div>
+  <div class="panel-body">
+     <%= form_for :post, url: posts_path do |f| %>
 
-<div id="map-canvas"/></div>
+        <%= f.hidden_field :latitude %>
+        <%= f.hidden_field :longitude %>
+     
+   
 
 
-<div class='form_instructions'>
-
-  <div id="panel" class='step step_1 active'>
-      <input id="address" type="textbox" value="Boston">
-      <input type="button" id='step_1' class='push_button' data-role='none'value="Plot General Location" onclick="codeAddress()">
-      <div style='clear:both'></div>
-  </div>  
-
-  <%= form_for :post, url: posts_path do |f| %>
-  <div class='step step_2'>
     <%= f.label :report_title %>
     <%= f.text_field :report_title %>
 
     <%= f.label :description %>
     <%= f.text_area :description %>
-    
-    <input type="button" id='step_2' class='push_button' data-role='none'value="next" onclick="">
-  </div>
-
-   <div class='step step_3'>
-      <p>Double Click To Drop A Pin</p>
-   
-      <div class="latLong">
-        <%= f.hidden_field :latitude %>
-        <%= f.hidden_field :longitude %>
-      </div>
-    <input type="button" id='step_3' class='push_button' data-role='none'value="next" onclick="">
-  </div>
-  <div class="step step_4">
     <%= check_box_tag(:community_issue) %>
     <%= label_tag(:community_issue, "Is this a community issue?") %>
     <%= check_box_tag(:general_issue) %>
     <%= label_tag(:general_issue, "Is this a more general report?") %>
     <%= check_box_tag(:fun_issue) %>
     <%= label_tag(:fun_issue, "Is this report just for fun?") %>
-  </div>
-
-
-  <div class="step step_5 submit">
     <%= f.submit %>
- </div>
 
+  </div>
+  <div class="panel-footer"></div>
 </div>
+<% end %>
+<div id="map-canvas"/></div>
+
+
+
+  
+   
+  
+   
+
+
 
 
 
@@ -66,7 +57,7 @@
 <script type="text/javascript">
    
 var geocoder;
-var map;
+window.map;
 var this_location =[];
 var markers_array=[];
 
@@ -78,7 +69,7 @@ function initialize() {
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  window.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
  google.maps.event.addListener(map, 'dblclick', function(event) {
       
@@ -114,9 +105,8 @@ function codeAddress() {
   var address = document.getElementById('address').value;
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      map.setCenter(results[0].geometry.location);
-        document.getElementById("post_longitude").value = this_location[0];
-        document.getElementById("post_latitude").value = this_location[1];
+      window.map.setCenter(results[0].geometry.location);
+     
 
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
@@ -128,21 +118,8 @@ function codeAddress() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-$(document).ready(function() {
-  $('#step_1').click(function(){
-   $('.step_3').addClass('active');
-   });
 
-  $('#step_3').click(function(){
-  $('.step').removeClass('active');
-  $('.step').fadeIn();
-  $('#panel, #step_2, #step_3').css('display', 'none');
-  $('.step_4').addClass('active');
-   });
-
-
-});
 
  
 </script>
-<% end %>
+
