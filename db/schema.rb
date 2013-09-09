@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130824194054) do
+ActiveRecord::Schema.define(version: 20130823203754) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "posts", force: true do |t|
     t.string   "report_title"
@@ -21,10 +24,10 @@ ActiveRecord::Schema.define(version: 20130824194054) do
     t.boolean  "general_issue"
     t.boolean  "community_issue"
     t.boolean  "fun_issue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.float    "latitude"
     t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
